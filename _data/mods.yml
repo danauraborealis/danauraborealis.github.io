@@ -4,23 +4,36 @@
 #   description: What it does.
 #   icon: /assets/images/mods/modname.png
 #   repo: https://github.com/danauraborealis/ModName
+#   preview: optional, shown on hover. accepts:
+#            - direct media url (.mp4/.webm/.gif/.png/.jpg) — for imgur use the
+#              i.imgur.com direct link, not the album page
+#            - a youtube watch url (embeds and autoplays muted)
+#            - a yaml list of image paths (plays as a slideshow)
 
 - name: ManimalAmmoLoadingAnimations
   description: First person animations for loading bullets into a mag.
   icon: /assets/images/mods/ammoloadinganimations.png
   repo: https://github.com/danauraborealis/ManimalAmmoLoadingAnimations
+  preview: https://www.youtube.com/watch?v=xZez3qgG5p0
 
 - name: Manimal's Watch Animations
   description: Left hand animation when checking remaining time in raid.
   icon: /assets/images/mods/watchanimations.png
   repo: https://github.com/danauraborealis/Manimal-s-Watch-Animations
+  preview: https://i.imgur.com/EVZPK0q.mp4
 
 - name: ManimalHackerMod
   description: Devices that can be used to hack keycard readers and ATM machines.
   icon: /assets/images/mods/hackermod.png
   repo: https://github.com/danauraborealis/ManimalHackerMod
+  preview: https://www.youtube.com/watch?v=RJD_hB5LPuU
 
 - name: ManimalsCombineSoldiers
   description: Adds the combine soldiers from Half-Life 2 to Escape From Tarkov.
   icon: /assets/images/mods/combinesoldiers.png
   repo: https://github.com/danauraborealis/ManimalsCombineSoldiers
+  preview:
+    - /assets/images/previews/combinesoldiers1.png
+    - /assets/images/previews/combinesoldiers2.png
+    - /assets/images/previews/combinesoldiers3.png
+    - https://www.youtube.com/watch?v=61CeuaouHps

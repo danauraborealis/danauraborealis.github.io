@@ -14,19 +14,71 @@ section {
   max-width: 1100px;
 }
 
-/* center the intro (top-level heading + paragraphs) — card text inside
-   the grid is nested deeper so this doesnt touch it */
-section > h1,
-section > p {
-  text-align: center;
+.mod-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 20px;
 }
 
 .mod-grid {
+  /* single column vertical list, cards hug the left edge */
   display: grid;
-  /* wide enough that long mod names fit on one line next to a 96px icon */
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
-  margin-top: 20px;
+  flex: 0 0 600px;
+  max-width: 600px;
+}
+
+.mod-preview {
+  /* fills the empty space right of the list, stays put while scrolling —
+     header bar is fixed at 60px so offset past it */
+  flex: 1;
+  min-width: 0;
+  position: sticky;
+  top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mod-preview video,
+.mod-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mod-preview iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+.mod-preview-hint {
+  padding: 20px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* stack on narrow screens — preview panel isnt useful there */
+@media screen and (max-width: 960px) {
+  .mod-layout {
+    flex-direction: column;
+  }
+  .mod-grid {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  .mod-preview {
+    display: none;
+  }
 }
 
 .mod-card {
