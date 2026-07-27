@@ -14,6 +14,40 @@ section {
   max-width: 1100px;
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 4px 0 8px;
+}
+
+.social-link {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.social-link.discord {
+  background: #5865f2;
+}
+
+.social-link.discord:hover {
+  background: #6d79f4;
+  color: #fff;
+}
+
+.social-link.kofi {
+  background: #ff5e5b;
+}
+
+.social-link.kofi:hover {
+  background: #ff7a77;
+  color: #fff;
+}
+
 .mod-layout {
   display: flex;
   gap: 24px;
@@ -65,18 +99,23 @@ section {
   width: 100%;
 }
 
+.slide-viewport {
+  /* height is set per-image from js — animate between the sizes */
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
 .slide-track {
   display: flex;
+  align-items: flex-start;
   transition: transform 0.5s ease;
 }
 
 .slide-track img {
-  /* fixed frame so mixed-size screenshots dont resize the panel mid-show */
   flex: 0 0 100%;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  background: #000;
+  height: auto;
+  display: block;
 }
 
 .slide-progress {
