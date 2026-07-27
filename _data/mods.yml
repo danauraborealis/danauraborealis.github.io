@@ -9,3 +9,18 @@
   description: First person animations for loading bullets into a mag.
   icon: /assets/images/mods/ammoloadinganimations.png
   repo: https://github.com/danauraborealis/ManimalAmmoLoadingAnimations
+
+- name: Manimal's Watch Animations
+  description: Left hand animation when checking remaining time in raid.
+  icon: /assets/images/mods/watchanimations.png
+  repo: https://github.com/danauraborealis/Manimal-s-Watch-Animations
+
+- name: ManimalHackerMod
+  description: Devices that can be used to hack keycard readers and ATM machines.
+  icon: /assets/images/mods/hackermod.png
+  repo: https://github.com/danauraborealis/ManimalHackerMod
+
+- name: ManimalsCombineSoldiers
+  description: Adds the combine soldiers from Half-Life 2 to Escape From Tarkov.
+  icon: /assets/images/mods/combinesoldiers.png
+  repo: https://github.com/danauraborealis/ManimalsCombineSoldiers

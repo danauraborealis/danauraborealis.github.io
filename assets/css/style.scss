@@ -3,14 +3,22 @@
 
 @import "{{ site.theme }}";
 
-/* midnight caps content at 650px and centers it — widen and pin left */
+/* midnight caps content at 650px — widen so the mod grid has room,
+   keep the container itself centered on the page */
 .wrapper {
   max-width: 1100px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 section {
   max-width: 1100px;
+}
+
+/* center the intro (top-level heading + paragraphs) — card text inside
+   the grid is nested deeper so this doesnt touch it */
+section > h1,
+section > p {
+  text-align: center;
 }
 
 .mod-grid {
