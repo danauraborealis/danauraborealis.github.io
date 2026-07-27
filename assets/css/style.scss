@@ -15,7 +15,8 @@ section {
 
 .mod-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* wide enough that long mod names fit on one line next to a 96px icon */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 16px;
   margin-top: 20px;
 }
@@ -46,7 +47,10 @@ section {
 .mod-info h3 {
   margin: 0 0 6px;
   font-size: 1.05em;
-  overflow-wrap: anywhere;
+  /* single line — ellipsis only kicks in if the viewport gets too narrow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mod-info p {
