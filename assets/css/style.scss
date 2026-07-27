@@ -1,0 +1,62 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.mod-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.mod-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+.mod-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mod-info h3 {
+  margin: 0 0 6px;
+  font-size: 1.05em;
+}
+
+.mod-info p {
+  margin: 0 0 10px;
+  font-size: 0.9em;
+}
+
+.mod-download,
+.mod-source {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  text-decoration: none;
+}
+
+.mod-download {
+  background: #3a9;
+  color: #fff;
+}
+
+.mod-download:hover {
+  background: #4cb;
+  color: #fff;
+}
+
+.mod-source {
+  border: 1px solid #555;
+}

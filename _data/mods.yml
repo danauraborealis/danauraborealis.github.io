@@ -1,0 +1,11 @@
+# one entry per mod — only mods listed here show on the page
+# format:
+# - name: ModName
+#   description: What it does.
+#   icon: /assets/images/mods/modname.png
+#   repo: https://github.com/danauraborealis/ModName
+
+- name: ManimalAmmoLoadingAnimations
+  description: First person animations for loading bullets into a mag.
+  icon: /assets/images/mods/ammoloadinganimations.png
+  repo: https://github.com/danauraborealis/ManimalAmmoLoadingAnimations
