@@ -3,6 +3,16 @@
 
 @import "{{ site.theme }}";
 
+/* midnight caps content at 650px and centers it — widen and pin left */
+.wrapper {
+  max-width: 1100px;
+  margin: 0;
+}
+
+section {
+  max-width: 1100px;
+}
+
 .mod-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -20,16 +30,23 @@
 }
 
 .mod-icon {
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   border-radius: 6px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
+.mod-info {
+  /* flex children wont shrink below their content width without this,
+     so long unbroken mod names blow out the card */
+  min-width: 0;
+}
+
 .mod-info h3 {
   margin: 0 0 6px;
   font-size: 1.05em;
+  overflow-wrap: anywhere;
 }
 
 .mod-info p {
