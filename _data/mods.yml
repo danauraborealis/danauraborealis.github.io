@@ -37,3 +37,12 @@
     - /assets/images/previews/combinesoldiers2.png
     - /assets/images/previews/combinesoldiers3.png
     - https://www.youtube.com/watch?v=61CeuaouHps
+
+# wip mods — no repo/icon yet, shown with an under-construction tab
+- name: ManimalIcebreaker
+  description: Coming soon.
+  wip: true
+
+- name: ManimalCSGas
+  description: Coming soon.
+  wip: true

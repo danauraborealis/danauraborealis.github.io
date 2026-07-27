@@ -1,13 +1,20 @@
 <div class="mod-layout">
   <div class="mod-grid">
 {% for mod in site.data.mods %}
-    <div class="mod-card" {% if mod.preview %}{% if mod.preview.first %}data-preview="{% for p in mod.preview %}{% if p contains '://' %}{{ p }}{% else %}{{ p | relative_url }}{% endif %}{% unless forloop.last %}|{% endunless %}{% endfor %}"{% else %}data-preview="{{ mod.preview }}"{% endif %}{% endif %}>
+    <div class="mod-card{% if mod.wip %} wip{% endif %}" {% if mod.preview %}{% if mod.preview.first %}data-preview="{% for p in mod.preview %}{% if p contains '://' %}{{ p }}{% else %}{{ p | relative_url }}{% endif %}{% unless forloop.last %}|{% endunless %}{% endfor %}"{% else %}data-preview="{{ mod.preview }}"{% endif %}{% endif %}>
+      {% if mod.wip %}<span class="wip-tab">Under Construction!</span>{% endif %}
+      {% if mod.icon %}
       <img class="mod-icon" src="{{ mod.icon | relative_url }}" alt="{{ mod.name }} icon">
+      {% else %}
+      <div class="mod-icon mod-icon-placeholder">?</div>
+      {% endif %}
       <div class="mod-info">
         <h3 title="{{ mod.name }}">{{ mod.name }}</h3>
         <p>{{ mod.description }}</p>
+        {% if mod.repo %}
         <a class="mod-download" href="{{ mod.repo }}/releases/latest">Download</a>
         <a class="mod-source" href="{{ mod.repo }}">Source</a>
+        {% endif %}
       </div>
     </div>
 {% endfor %}
@@ -54,6 +61,59 @@
     panel.appendChild(el);
   }
 
+  var SLIDE_MS = 4000;
+
+  function isMedia(url) {
+    return youtubeId(url) || /\.(mp4|webm)(\?|$)/i.test(url);
+  }
+
+  // slideshow: images slide in on a horizontal track with a progress bar
+  // underneath; an optional trailing video/youtube entry plays after one
+  // full pass and holds
+  function showSlideshow(urls) {
+    var imgs = urls.filter(function (u) { return !isMedia(u); });
+    var tail = urls.filter(isMedia)[0] || null;
+
+    var wrap = document.createElement('div');
+    wrap.className = 'slideshow';
+    var track = document.createElement('div');
+    track.className = 'slide-track';
+    imgs.forEach(function (src) {
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = 'mod preview';
+      track.appendChild(img);
+    });
+    var prog = document.createElement('div');
+    prog.className = 'slide-progress';
+    var bar = document.createElement('div');
+    bar.className = 'slide-progress-bar';
+    prog.appendChild(bar);
+    wrap.appendChild(track);
+    wrap.appendChild(prog);
+    panel.innerHTML = '';
+    panel.appendChild(wrap);
+
+    var i = 0;
+    function step() {
+      track.style.transform = 'translateX(-' + (i * 100) + '%)';
+      // restart the css fill animation — clearing the inline override
+      // hands control back to the class animation from frame zero
+      bar.style.animation = 'none';
+      void bar.offsetWidth;
+      bar.style.animation = '';
+      slideTimer = setTimeout(function () {
+        i++;
+        if (i >= imgs.length) {
+          if (tail) { render(tail, false); return; }
+          i = 0;
+        }
+        step();
+      }, SLIDE_MS);
+    }
+    step();
+  }
+
   function show(spec) {
     if (spec === current) return; // dont reload the same media on re-hover
     current = spec;
@@ -62,25 +122,16 @@
     var urls = spec.split('|');
     if (urls.length === 1) {
       render(urls[0], true);
-      return;
+    } else {
+      showSlideshow(urls);
     }
-
-    // sequence: images advance every 3s, a video/youtube entry plays and
-    // holds — put it last and it autoplays after the slideshow
-    var i = 0;
-    function step() {
-      var url = urls[i];
-      var isMedia = youtubeId(url) || /\.(mp4|webm)(\?|$)/i.test(url);
-      render(url, false);
-      if (isMedia) return;
-      i = (i + 1) % urls.length;
-      slideTimer = setTimeout(step, 3000);
-    }
-    step();
   }
 
   document.querySelectorAll('.mod-card[data-preview]').forEach(function (card) {
     card.addEventListener('mouseenter', function () {
+      var prev = document.querySelector('.mod-card.active');
+      if (prev) prev.classList.remove('active');
+      card.classList.add('active');
       show(card.dataset.preview);
     });
   });
