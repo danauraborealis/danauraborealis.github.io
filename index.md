@@ -16,6 +16,11 @@
       <div class="mod-info">
         <h3 title="{{ mod.name }}">{{ mod.name }}</h3>
         <p>{{ mod.description }}</p>
+        {% if mod.dependencies %}
+        <p class="mod-deps">Requires:
+          {% for dep in mod.dependencies %}<a href="{{ dep.url }}">{{ dep.name }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
+        </p>
+        {% endif %}
         {% if mod.repo %}
         <a class="mod-download" href="{{ mod.repo }}/releases/latest">Download</a>
         <a class="mod-source" href="{{ mod.repo }}">Source</a>
