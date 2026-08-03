@@ -25,7 +25,23 @@
         <a class="mod-download" href="{{ mod.repo }}/releases/latest">Download</a>
         <a class="mod-source" href="{{ mod.repo }}">Source</a>
         {% endif %}
+        {% if mod.addons %}
+        <button class="mod-addons-toggle" type="button">Addons ({{ mod.addons | size }}) <span class="caret">&#9662;</span></button>
+        {% endif %}
       </div>
+      {% if mod.addons %}
+      <div class="mod-addons">
+        <div class="mod-addons-inner">
+          {% for addon in mod.addons %}
+          <div class="addon-item">
+            <span class="addon-name">{% if addon.url %}<a href="{{ addon.url }}">{{ addon.name }}</a>{% else %}{{ addon.name }}{% endif %}</span>
+            {% if addon.required %}<span class="addon-required">Required</span>{% endif %}
+            {% if addon.description %}<p>{{ addon.description }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
       {% assign desc = site.descriptions | where: "mod", mod.name | first %}
       {% if desc or mod.full_description %}
       <template class="mod-full-desc"><h4>{{ mod.name }}</h4>{% if desc %}{{ desc.content | markdownify }}{% else %}{{ mod.full_description | markdownify }}{% endif %}</template>
@@ -160,6 +176,16 @@
       showSlideshow(urls);
     }
   }
+
+  document.querySelectorAll('.mod-addons-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var box = btn.closest('.mod-card').querySelector('.mod-addons');
+      var open = box.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      // explicit height so the transition has something to animate to
+      box.style.maxHeight = open ? box.scrollHeight + 'px' : '';
+    });
+  });
 
   document.querySelectorAll('.mod-card').forEach(function (card) {
     var full = card.querySelector('.mod-full-desc');

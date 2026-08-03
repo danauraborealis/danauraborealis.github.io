@@ -12,6 +12,12 @@
 #
 # long descriptions live in their own markdown file under _descriptions/,
 # linked by a `mod:` front matter key matching this entry's name exactly.
+#
+#   addons: optional list, shown behind an "Addons" dropdown button on the card
+#     - name: Some Addon
+#       description: what it does
+#       url: link to it            # optional — plain text if omitted
+#       required: true             # optional — adds a red Required badge
 # (a `full_description:` key here still works as a fallback if you'd rather
 #  keep something short inline)
 #   dependencies: optional list of mods this mod needs, each with name + url:
@@ -83,6 +89,10 @@
       url: https://github.com/TacticalToaster/BlackDiv
     - name: Manimal's CS Gas
       url: https://github.com/danauraborealis/ManimalCSGas
+  addons:
+    - name: MANIMAL'S ICEBREAKER BACKPORT FIKA SYNC
+      description: Needed if you play with Fika. Install it everywhere (client, server, headless).
+      url: https://github.com/danauraborealis/ManimalIcebreaker/releases/tag/0.1.1
   preview:
     - /assets/images/previews/ib_screen1.png
     - /assets/images/previews/ib_screen2.png

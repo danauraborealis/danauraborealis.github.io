@@ -212,6 +212,8 @@ section {
   /* relative so the wip tab can hang off the corner */
   position: relative;
   display: flex;
+  /* wrap lets the addons panel drop onto its own full-width row */
+  flex-wrap: wrap;
   gap: 14px;
   padding: 16px;
   background: #1a1a1a;
@@ -272,6 +274,77 @@ section {
   /* flex children wont shrink below their content width without this,
      so long unbroken mod names blow out the card */
   min-width: 0;
+  flex: 1;
+}
+
+.mod-addons-toggle {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: transparent;
+  color: #ccc;
+  font-family: inherit;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.mod-addons-toggle:hover {
+  border-color: #3a9;
+  color: #fff;
+}
+
+.mod-addons-toggle .caret {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.mod-addons-toggle.open .caret {
+  transform: rotate(180deg);
+}
+
+.mod-addons {
+  flex: 0 0 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mod-addons-inner {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #3a3a3a;
+}
+
+.addon-item {
+  padding: 8px 10px;
+  background: #151515;
+  border-left: 3px solid #3a9;
+  border-radius: 4px;
+
+  & + & {
+    margin-top: 8px;
+  }
+
+  p {
+    margin: 4px 0 0;
+    font-size: 0.8em;
+    color: #999;
+  }
+}
+
+.addon-name {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.addon-required {
+  margin-left: 8px;
+  padding: 1px 6px;
+  background: #c0392b;
+  border-radius: 3px;
+  font-size: 0.7em;
+  color: #fff;
 }
 
 .mod-info h3 {
