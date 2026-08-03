@@ -13,16 +13,16 @@
 #     - name: WTT-CommonLib
 #       url: https://example.com/link-to-it
 
-- name: ManimalAmmoLoadingAnimations
+- name: Manimal's Ammo Loading Animations
   description: First person animations for loading bullets into a mag.
   icon: /assets/images/mods/ammoloadinganimations.png
   repo: https://github.com/danauraborealis/ManimalAmmoLoadingAnimations
   preview: https://www.youtube.com/watch?v=xZez3qgG5p0
   dependencies:
     - name: Continuous Load Ammo
-      url: https://forge.sp-tarkov.com/mod/2112/continuous-load-ammo
+      url: https://github.com/ozen-m/SPT-ContinuousLoadAmmo
     - name: WTT-CommonLib
-      url: https://forge.sp-tarkov.com/mod/2310/wtt-commonlib
+      url: https://github.com/WelcomeToTarkov/WTT-CommonLib/
 
 - name: Manimal's Watch Animations
   description: Left hand animation when checking remaining time in raid.
@@ -30,28 +30,30 @@
   repo: https://github.com/danauraborealis/Manimal-s-Watch-Animations
   preview: https://i.imgur.com/EVZPK0q.mp4
 
-- name: ManimalHackerMod
+- name: Manimal's Hacker Mod
   description: Devices that can be used to hack keycard readers and ATM machines.
   icon: /assets/images/mods/hackermod.png
   repo: https://github.com/danauraborealis/ManimalHackerMod
   preview: https://www.youtube.com/watch?v=RJD_hB5LPuU
   dependencies:
     - name: WTT-CommonLib
-      url: https://forge.sp-tarkov.com/mod/2310/wtt-commonlib
+      url: https://github.com/WelcomeToTarkov/WTT-CommonLib/
 
-- name: ManimalsCombineSoldiers
+- name: Manimal's Combine Soldiers
   description: Adds the combine soldiers from Half-Life 2 to Escape From Tarkov.
   icon: /assets/images/mods/combinesoldiers.png
   repo: https://github.com/danauraborealis/ManimalsCombineSoldiers
   dependencies:
     - name: WTT-CommonLib
-      url: https://forge.sp-tarkov.com/mod/2310/wtt-commonlib
+      url: https://github.com/WelcomeToTarkov/WTT-CommonLib/
     - name: BigBrain
-      url: https://forge.sp-tarkov.com/mod/902/bigbrain
+      url: https://github.com/DrakiaXYZ/SPT-BigBrain
     - name: MoreBotsAPI
-      url: https://forge.sp-tarkov.com/mod/2426/morebotsapi
+      url: https://github.com/TacticalToaster/MoreBotsAPI
     - name: WTT-Content-Backport
-      url: https://forge.sp-tarkov.com/mod/2512/wtt-content-backport
+      url: https://github.com/WelcomeToTarkov/Tarkov-1.0-Backport
+    - name: Eco's Franchi Spas-12
+      url: https://github.com/Eco9341/Franchi-SPAS-12
   preview:
     - /assets/images/previews/combinesoldiers1.png
     - /assets/images/previews/combinesoldiers2.png
@@ -59,10 +61,39 @@
     - https://www.youtube.com/watch?v=61CeuaouHps
 
 # wip mods — no repo/icon yet, shown with an under-construction tab
-- name: ManimalIcebreaker
-  description: Coming soon.
-  wip: true
+- name: MANIMAL'S ICEBREAKER BACKPORT[BETA]
+  description: A mod that backports the entire Icebreaker map and some of its related quests to SPT 4.0.13.
+  icon: /assets/images/mods/icebreakericon.png
+  repo: https://github.com/danauraborealis/ManimalIcebreaker
+    dependencies:
+    - name: WTT-CommonLib
+      url: https://github.com/WelcomeToTarkov/WTT-CommonLib/
+    - name: BigBrain
+      url: https://github.com/DrakiaXYZ/SPT-BigBrain
+    - name: MoreBotsAPI
+      url: https://github.com/TacticalToaster/MoreBotsAPI
+    - name: WTT-Content-Backport
+      url: https://github.com/WelcomeToTarkov/Tarkov-1.0-Backport
+    - name: WTT-Black Division [REDACTED] Home 
+      url: https://github.com/TacticalToaster/BlackDiv
+    - name: Manimal's CS Gas
+      url: https://github.com/danauraborealis/ManimalCSGas
+  preview:
+    - /assets/images/previews/ib_screen1.png
+    - /assets/images/previews/ib_screen2.png
+    - /assets/images/previews/ib_screen3.png
+    - /assets/images/previews/ib_screen4.png
+    - https://youtu.be/pepCVLq2Kmg?si=BfWHlNwFgAsdu8td
+  wip: false
 
-- name: ManimalCSGas
-  description: Coming soon.
-  wip: true
+- name: Manimal's CS Gas
+  description: A mod that adds the CS Gas grenade from 1.0.
+  icon: /assets/images/mods/csgas.png
+  repo: https://github.com/danauraborealis/ManimalCSGas
+  dependencies:
+      - name: WTT-CommonLib
+        url: https://github.com/WelcomeToTarkov/WTT-CommonLib/
+      - name: WTT-Content-Backport
+        url: https://github.com/WelcomeToTarkov/Tarkov-1.0-Backport
+  preview: https://www.youtube.com/watch?v=rMWxuVeHp8w
+  wip: false
