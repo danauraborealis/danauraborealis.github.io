@@ -26,17 +26,25 @@
         <a class="mod-source" href="{{ mod.repo }}">Source</a>
         {% endif %}
       </div>
+      {% assign desc = site.descriptions | where: "mod", mod.name | first %}
+      {% if desc or mod.full_description %}
+      <template class="mod-full-desc"><h4>{{ mod.name }}</h4>{% if desc %}{{ desc.content | markdownify }}{% else %}{{ mod.full_description | markdownify }}{% endif %}</template>
+      {% endif %}
     </div>
 {% endfor %}
   </div>
   <div class="mod-preview" id="mod-preview">
-    <span class="mod-preview-hint">Hover over a mod to see a preview</span>
+    <div class="mod-preview-media" id="mod-preview-media">
+      <span class="mod-preview-hint">Hover over a mod to see a preview</span>
+    </div>
+    <div class="mod-preview-desc" id="mod-preview-desc"></div>
   </div>
 </div>
 
 <script>
 (function () {
-  var panel = document.getElementById('mod-preview');
+  var panel = document.getElementById('mod-preview-media');
+  var descPanel = document.getElementById('mod-preview-desc');
   var current = '';
   var slideTimer = null;
 
@@ -153,12 +161,25 @@
     }
   }
 
-  document.querySelectorAll('.mod-card[data-preview]').forEach(function (card) {
+  document.querySelectorAll('.mod-card').forEach(function (card) {
+    var full = card.querySelector('.mod-full-desc');
+    if (!card.dataset.preview && !full) return;
+
     card.addEventListener('mouseenter', function () {
       var prev = document.querySelector('.mod-card.active');
       if (prev) prev.classList.remove('active');
       card.classList.add('active');
-      show(card.dataset.preview);
+
+      if (card.dataset.preview) {
+        show(card.dataset.preview);
+      } else {
+        current = '';
+        if (slideTimer) { clearTimeout(slideTimer); slideTimer = null; }
+        panel.innerHTML = '';
+      }
+
+      descPanel.innerHTML = '';
+      if (full) descPanel.appendChild(full.content.cloneNode(true));
     });
   });
 })();

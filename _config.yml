@@ -1,3 +1,9 @@
 theme: jekyll-theme-midnight
 title: SPT Mods
 description: Downloads for my SPT / Escape From Tarkov mods
+
+# per-mod long descriptions live in _descriptions/*.md — output: false keeps
+# jekyll from publishing each one as its own page
+collections:
+  descriptions:
+    output: false

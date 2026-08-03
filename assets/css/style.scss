@@ -90,14 +90,46 @@ section {
   min-width: 0;
   position: sticky;
   top: 80px;
+  /* media on top, extended description stacked under it */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   min-height: 240px;
+  max-height: calc(100vh - 100px);
   background: #1a1a1a;
   border: 1px solid #333;
   border-radius: 8px;
   overflow: hidden;
+}
+
+.mod-preview-media {
+  flex-shrink: 0;
+}
+
+.mod-preview-desc {
+  /* long writeups scroll here instead of pushing the panel off screen */
+  overflow-y: auto;
+  padding: 0 16px;
+  font-size: 0.85em;
+  line-height: 1.5;
+
+  &:not(:empty) {
+    padding: 14px 16px;
+    border-top: 1px solid #333;
+  }
+
+  h4 {
+    margin: 0 0 8px;
+    font-size: 1.15em;
+    color: #ddd;
+  }
+
+  p, ul, ol {
+    margin: 0 0 8px;
+  }
+
+  ul, ol {
+    padding-left: 20px;
+  }
 }
 
 .mod-preview video,
@@ -155,7 +187,9 @@ section {
 }
 
 .mod-preview-hint {
-  padding: 20px;
+  display: block;
+  padding: 60px 20px;
+  text-align: center;
   font-size: 0.9em;
   color: #666;
 }

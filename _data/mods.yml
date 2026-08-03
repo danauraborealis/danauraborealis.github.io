@@ -9,6 +9,11 @@
 #              i.imgur.com direct link, not the album page
 #            - a youtube watch url (embeds and autoplays muted)
 #            - a yaml list of image paths (plays as a slideshow)
+#
+# long descriptions live in their own markdown file under _descriptions/,
+# linked by a `mod:` front matter key matching this entry's name exactly.
+# (a `full_description:` key here still works as a fallback if you'd rather
+#  keep something short inline)
 #   dependencies: optional list of mods this mod needs, each with name + url:
 #     - name: WTT-CommonLib
 #       url: https://example.com/link-to-it
