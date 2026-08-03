@@ -7,8 +7,8 @@ The Mod
 
 This mod adds two new devices:
 
-Hacker Device (2/2 Charges)
-Ref's Hacker Device (4/4 Charges)
+- Hacker Device (2/2 Charges)
+- Ref's Hacker Device (4/4 Charges)
 
 Both devices allow you to complete a mini-game. Successful completion will allow you to unlock Keycard doors, and hack ATM machines for a bit of cash. 
 
