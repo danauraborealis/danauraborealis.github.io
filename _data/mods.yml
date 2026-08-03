@@ -65,7 +65,7 @@
   description: A mod that backports the entire Icebreaker map and some of its related quests to SPT 4.0.13.
   icon: /assets/images/mods/icebreakericon.png
   repo: https://github.com/danauraborealis/ManimalIcebreaker
-    dependencies:
+  dependencies:
     - name: WTT-CommonLib
       url: https://github.com/WelcomeToTarkov/WTT-CommonLib/
     - name: BigBrain
